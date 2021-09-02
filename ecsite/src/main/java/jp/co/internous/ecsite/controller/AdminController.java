@@ -35,7 +35,8 @@ public class AdminController {
 	}
 	
 	@PostMapping("/welcome")
-	public String welcome (LoginForm form, Model m ) {
+	public String welcome(LoginForm form, Model m ) {
+		System.out.println(form.getUserName() + "" + form.getPassword());
 	List<User> users = userRepos. findByUserNameAndPassword(form.getUserName(), form.getPassword());
 	if (users != null && users.size() > 0) {
 	boolean isAdmin = users.get(0).getIsAdmin() != 0;
